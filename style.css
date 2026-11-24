@@ -1,0 +1,794 @@
+/* =========================================================
+   Portfólio de Luís Junior
+   Cores principais: azul-marinho (#0f2747) e âmbar (#f5a400)
+   Fontes: Trebuchet MS (títulos) e Segoe UI (texto), já instaladas no Windows
+   ========================================================= */
+
+/* ---------- Variáveis (tema claro é o padrão) ---------- */
+:root {
+  --bg: #ffffff;
+  --bg-alt: #eef2f7;
+  --surface: #ffffff;
+  --text: #16202e;
+  --muted: #4d5b6e;
+  --border: #d5dde8;
+  --primary: #0f2747;
+  --accent: #f5a400;
+  --btn-bg: #0f2747;
+  --btn-fg: #ffffff;
+  --link: #0b4aa8;
+  --tag-bg: #fff1cc;
+  --tag-fg: #5c3d00;
+  --header-bg: rgba(255, 255, 255, 0.92);
+  --footer-bg: #0f2747;
+  --footer-fg: #e7edf6;
+  --error: #b3261e;
+  --ok: #1b6e3a;
+  --shadow: 0 6px 18px rgba(15, 39, 71, 0.08);
+  --radius: 14px;
+  --font-title: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  --font-body: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg: #0b1424;
+  --bg-alt: #101c31;
+  --surface: #14233d;
+  --text: #e8eef8;
+  --muted: #aab7ca;
+  --border: #263a5a;
+  --primary: #f5a400;
+  --btn-bg: #f5a400;
+  --btn-fg: #0b1424;
+  --link: #ffc24a;
+  --tag-bg: #26364f;
+  --tag-fg: #ffd98a;
+  --header-bg: rgba(11, 20, 36, 0.92);
+  --footer-bg: #070d18;
+  --footer-fg: #c9d4e4;
+  --error: #ff8f87;
+  --ok: #7ddf9f;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+  color: var(--text);
+}
+
+h2 {
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+}
+
+a {
+  color: var(--link);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  width: min(1100px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--accent);
+  color: #0b1424;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+/* ---------- 01 · Cabeçalho ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.menu a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.menu a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.theme-toggle {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+/* botão hambúrguer: só aparece no celular */
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-icon {
+  position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-icon::before {
+  top: -6px;
+}
+
+.menu-icon::after {
+  top: 6px;
+}
+
+.site-header.menu-open .menu-icon {
+  background: transparent;
+}
+
+.site-header.menu-open .menu-icon::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-header.menu-open .menu-icon::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-block;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.btn-primary {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--text);
+}
+
+/* ---------- Seções ---------- */
+.section {
+  padding: 4.5rem 0;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+.section-sub {
+  color: var(--muted);
+  margin: 0 0 2rem;
+}
+
+/* ---------- 02 · Início ---------- */
+.hero {
+  padding: 4rem 0 5rem;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(245, 164, 0, 0.18), transparent 45%),
+    var(--bg);
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.hero-text {
+  flex: 1 1 55%;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  margin-bottom: 0.25rem;
+}
+
+.role {
+  margin: 0 0 1rem;
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.lead {
+  max-width: 52ch;
+  color: var(--muted);
+  margin: 0 0 1.75rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-photo {
+  flex: 0 0 auto;
+  margin: 0;
+  width: min(320px, 80vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- 03 · Sobre mim ---------- */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.about-figure {
+  margin: 0;
+}
+
+.about-figure img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.about-text p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.facts {
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.facts div {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 0.75rem;
+}
+
+.facts dt {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.facts dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------- 04 · Habilidades ---------- */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+
+.skill-badge {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #0b1424;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.skill-name {
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ---------- 05 · Projetos ---------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+}
+
+.card-body h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.card-body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tags li {
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: var(--tag-bg);
+  color: var(--tag-fg);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.card-more {
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border);
+}
+
+.card-more[hidden] {
+  display: none;
+}
+
+.card-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.25rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.link-btn {
+  font: inherit;
+  font-weight: 600;
+  padding: 0;
+  color: var(--link);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ---------- 06 · Contato ---------- */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.contact-list li {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  border-left: 4px solid var(--accent);
+}
+
+.contact-list span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.contact-list a {
+  overflow-wrap: anywhere;
+  font-weight: 500;
+}
+
+.contact-form {
+  padding: 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.1rem;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.field input,
+.field textarea {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  width: 100%;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(245, 164, 0, 0.35);
+}
+
+.field.has-error input,
+.field.has-error textarea {
+  border-color: var(--error);
+}
+
+.field-error {
+  min-height: 1.1em;
+  font-size: 0.82rem;
+  color: var(--error);
+}
+
+.form-status {
+  margin: 1rem 0 0;
+  font-weight: 500;
+  color: var(--ok);
+}
+
+.form-status:empty {
+  display: none;
+}
+
+/* ---------- 07 · Rodapé ---------- */
+.site-footer {
+  background: var(--footer-bg);
+  color: var(--footer-fg);
+  padding: 1.75rem 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-inner p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.social {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.social a {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--footer-fg);
+  color: var(--footer-fg);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.social a:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0b1424;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 980px) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Celular (testado em 375 px) ---------- */
+@media (max-width: 760px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  /* menu vira botão hambúrguer */
+  .menu-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 1rem 1rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  .site-header.menu-open .menu {
+    display: flex;
+  }
+
+  .menu li {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .menu a {
+    display: block;
+    padding: 0.85rem 0;
+    border-bottom: 0;
+  }
+
+  .menu li:last-child {
+    border-bottom: 0;
+    padding-top: 0.75rem;
+  }
+
+  /* início: foto em cima, texto embaixo */
+  .hero {
+    padding: 2.5rem 0 3rem;
+  }
+
+  .hero-inner {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-photo {
+    width: min(220px, 60vw);
+  }
+
+  .lead {
+    margin-inline: auto;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  /* demais blocos em uma coluna */
+  .about,
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .facts div {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 1.25rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}

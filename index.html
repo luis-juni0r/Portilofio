@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luís Junior | Portfólio</title>
+  <meta name="description" content="Portfólio de Luís Junior, estudante de Desenvolvimento de Sistemas em Itumbiara (GO), com projetos de IoT, Python e front-end.">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- 01 · CABEÇALHO (header + nav) -->
+  <header class="site-header" id="topo">
+    <div class="container header-inner">
+      <a class="logo" href="#inicio">Luís<span>.</span>Junior</a>
+
+      <button class="menu-toggle" id="menu-btn" type="button"
+              aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+
+      <nav aria-label="Principal">
+        <ul class="menu" id="menu">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li>
+            <button class="theme-toggle" id="tema-btn" type="button" aria-label="Alternar tema claro e escuro">Tema</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- 02 · INÍCIO -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Olá, eu sou</p>
+          <h1 id="hero-titulo">Luís Junior</h1>
+          <p class="role">Estudante de Desenvolvimento de Sistemas · IoT e Front-end</p>
+          <p class="lead">Gosto de transformar ideias em sistemas que funcionam, do sensor ao painel. Estou em busca da minha primeira oportunidade de estágio em desenvolvimento.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+            <a class="btn btn-outline" href="#contato">Pedir currículo</a>
+          </div>
+        </div>
+
+        <figure class="hero-photo">
+          <img src="images/avatar.svg" width="320" height="320"
+               alt="Ilustração com as iniciais LJ, no lugar da foto de Luís Junior">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 03 · SOBRE MIM -->
+    <section class="section section-alt" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="container about">
+        <figure class="about-figure">
+          <img src="images/sobre.svg" width="560" height="420" loading="lazy"
+               alt="Ilustração de um notebook com código ao lado de uma placa ESP32 enviando sinal sem fio">
+        </figure>
+
+        <div class="about-text">
+          <h2 id="sobre-titulo">Sobre mim</h2>
+          <p>Sou estudante de Gestão da Tecnologia da Informação, na turma de Desenvolvimento de Sistemas. Nas aulas e nos projetos, aprendi a juntar a parte de hardware com a de software: ler sensores, guardar os dados e mostrá-los em uma tela clara para quem vai usar.</p>
+          <p>Meus trabalhos vão de painéis em HTML, CSS e JavaScript até aplicativos em Python com Flask e Flet. Gosto de testar cada etapa e de documentar o que faço.</p>
+          <p>Também me interesso por como a tecnologia pode ajudar a região onde moro, principalmente em inclusão digital.</p>
+
+          <dl class="facts">
+            <div><dt>Localização</dt><dd>Itumbiara, Goiás</dd></div>
+            <div><dt>Formação</dt><dd>Gestão da Tecnologia da Informação (Desenvolvimento de Sistemas)</dd></div>
+            <div><dt>Interesses</dt><dd>IoT, desenvolvimento de sistemas, inclusão digital</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · HABILIDADES -->
+    <section class="section" id="habilidades" aria-labelledby="hab-titulo">
+      <div class="container">
+        <h2 id="hab-titulo">Habilidades</h2>
+        <p class="section-sub">Linguagens, ferramentas e tecnologias que eu uso nos meus projetos.</p>
+
+        <ul class="skills">
+          <li class="skill-card"><span class="skill-badge" aria-hidden="true">H5</span><span class="skill-name">HTML5</span></li>
+          <li class="skill-card"><span class="skill-badge" aria-hidden="true">C3</span><span class="skill-name">CSS3</span></li>
+          <li class="skill-card"><span class="skill-badge" aria-hidden="true">JS</span><span class="skill-name">JavaScript</span></li>
+          <li class="skill-card"><span class="skill-badge" aria-hidden="true">Py</span><span class="skill-name">Python</span></li>
+          <li class="skill-card"><span class="skill-badge" aria-hidden="true">Git</span><span class="skill-name">Git e GitHub</span></li>
+          <li class="skill-card"><span class="skill-badge" aria-hidden="true">IoT</span><span class="skill-name">ESP32</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 · PROJETOS -->
+    <section class="section section-alt" id="projetos" aria-labelledby="proj-titulo">
+      <div class="container">
+        <h2 id="proj-titulo">Projetos</h2>
+        <p class="section-sub">Alguns trabalhos que fiz nas aulas e em projetos da turma.</p>
+
+        <div class="projects">
+
+          <article class="card">
+            <img src="images/voltguard.svg" width="640" height="360" loading="lazy"
+                 alt="Gráfico de onda elétrica em amarelo sobre fundo azul-escuro, representando o VoltGuard">
+            <div class="card-body">
+              <h3>VoltGuard</h3>
+              <p>Monitoramento elétrico com IoT: um ESP32 lê corrente e tensão e envia os dados para uma API Flask, com painel em Flet.</p>
+              <ul class="tags" aria-label="Tecnologias do projeto">
+                <li>ESP32</li><li>Flask</li><li>Flet</li><li>SQLite</li>
+              </ul>
+              <p class="card-more" id="mais-voltguard" hidden>Inclui firmware, banco SQLite, relatório em PDF e um simulador para testar sem o hardware. Projeto em andamento.</p>
+              <div class="card-links">
+                <button class="link-btn" type="button" aria-expanded="false" aria-controls="mais-voltguard">Saiba mais →</button>
+                <a href="https://github.com/SEU-USUARIO/voltguard" target="_blank" rel="noopener">Código →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="images/frigobrasil.svg" width="640" height="360" loading="lazy"
+                 alt="Três cartões de temperatura de câmaras frias, com indicadores verde, amarelo e vermelho">
+            <div class="card-body">
+              <h3>Painel FrigoBrasil</h3>
+              <p>Painel web que mostra a temperatura de cada câmara fria e classifica o estado como normal, atenção ou crítico.</p>
+              <ul class="tags" aria-label="Tecnologias do projeto">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li>
+              </ul>
+              <p class="card-more" id="mais-frigobrasil" hidden>Feito só com HTML, CSS e JavaScript puro. A página consulta uma API local, atualiza os cartões na tela e usa um tema visual retrô.</p>
+              <div class="card-links">
+                <button class="link-btn" type="button" aria-expanded="false" aria-controls="mais-frigobrasil">Saiba mais →</button>
+                <a href="https://github.com/SEU-USUARIO/frigobrasil" target="_blank" rel="noopener">Código →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="images/scarlett.svg" width="640" height="360" loading="lazy"
+                 alt="Calendário em tons de rosa com um dia destacado, representando o agendamento do salão Scarlett Skin">
+            <div class="card-body">
+              <h3>Scarlett Skin</h3>
+              <p>Aplicativo para um salão de beleza, com pesquisa de tratamentos, agendamento de horários e galeria de divulgação.</p>
+              <ul class="tags" aria-label="Tecnologias do projeto">
+                <li>Python</li><li>Flet</li><li>Flask</li>
+              </ul>
+              <p class="card-more" id="mais-scarlett" hidden>Aplicativo em Python com abas para tratamentos e agendamento, e uma galeria que serve de vitrine para o salão. Projeto em andamento.</p>
+              <div class="card-links">
+                <button class="link-btn" type="button" aria-expanded="false" aria-controls="mais-scarlett">Saiba mais →</button>
+                <a href="https://github.com/SEU-USUARIO/scarlett-skin" target="_blank" rel="noopener">Código →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · CONTATO -->
+    <section class="section" id="contato" aria-labelledby="contato-titulo">
+      <div class="container contact">
+        <div class="contact-info">
+          <h2 id="contato-titulo">Vamos conversar?</h2>
+          <p class="section-sub">Escreva pelo formulário ou use um dos links abaixo. Respondo o mais rápido que puder.</p>
+
+          <ul class="contact-list">
+            <li><span>E-mail</span><a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a></li>
+            <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/SEU-PERFIL" target="_blank" rel="noopener">linkedin.com/in/SEU-PERFIL</a></li>
+            <li><span>GitHub</span><a href="https://github.com/SEU-USUARIO" target="_blank" rel="noopener">github.com/SEU-USUARIO</a></li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="form-contato" novalidate>
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" autocomplete="name" required aria-describedby="erro-nome">
+            <span class="field-error" id="erro-nome" aria-live="polite"></span>
+          </div>
+
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="erro-email">
+            <span class="field-error" id="erro-email" aria-live="polite"></span>
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required aria-describedby="erro-mensagem"></textarea>
+            <span class="field-error" id="erro-mensagem" aria-live="polite"></span>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Enviar mensagem</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 07 · RODAPÉ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Luís Junior. Feito com HTML, CSS e JavaScript.</p>
+      <ul class="social">
+        <li><a href="https://github.com/SEU-USUARIO" target="_blank" rel="noopener" aria-label="GitHub">Gh</a></li>
+        <li><a href="https://www.linkedin.com/in/SEU-PERFIL" target="_blank" rel="noopener" aria-label="LinkedIn">In</a></li>
+        <li><a href="mailto:seuemail@exemplo.com" aria-label="Enviar e-mail">@</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
