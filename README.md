@@ -1,6 +1,6 @@
 # Portfólio de Luís Junior
 
-![Portfólio no computador](images/screenshot-desktop.png)
+![Portifolio no computador](images/screenshot-desktop.png)
 
 ## Objetivo
 
